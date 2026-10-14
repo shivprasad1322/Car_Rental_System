@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1220" viewBox="0 0 1600 1220" role="img" aria-labelledby="title desc">
+  <title id="title">Car Rental Management System Entity-Relationship Diagram</title>
+  <desc id="desc">Visual entity relationship diagram showing customer accounts, brands, vehicles, bookings, billing, testimonials, and supporting administration tables.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#17324d" flood-opacity="0.14"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6b86a3"/>
+    </marker>
+    <style>
+      .title { font: 700 30px Arial, sans-serif; fill: #17324d; }
+      .subtitle { font: 16px Arial, sans-serif; fill: #5d7590; }
+      .entity { fill: #ffffff; stroke-width: 3; filter: url(#shadow); }
+      .core { stroke: #2f6fed; }
+      .catalog { stroke: #16a085; }
+      .support { stroke: #f28a1e; }
+      .header-core { fill: #2f6fed; }
+      .header-catalog { fill: #16a085; }
+      .header-support { fill: #f28a1e; }
+      .header-text { font: 700 17px Arial, sans-serif; fill: #ffffff; letter-spacing: .4px; }
+      .field { font: 14px Arial, sans-serif; fill: #29415d; }
+      .key { font-weight: 700; fill: #17324d; }
+      .line { stroke: #6b86a3; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .relation { font: 13px Arial, sans-serif; fill: #536d88; }
+      .note { font: 13px Arial, sans-serif; fill: #5d7590; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1220" fill="#f6f8fb"/>
+  <text x="800" y="48" text-anchor="middle" class="title">Car Rental Management System</text>
+  <text x="800" y="76" text-anchor="middle" class="subtitle">Entity-relationship diagram of the application database</text>
+
+  <!-- Relationships are drawn first so entity cards remain readable. -->
+  <path class="line" d="M330 220 L515 220"/>
+  <text x="418" y="207" text-anchor="middle" class="relation">classifies</text>
+  <path class="line" d="M330 520 L515 520"/>
+  <text x="422" y="507" text-anchor="middle" class="relation">places</text>
+  <path class="line" d="M840 520 L1025 520"/>
+  <text x="932" y="507" text-anchor="middle" class="relation">reserves</text>
+  <path class="line" d="M1330 520 L1370 520"/>
+  <text x="1350" y="507" text-anchor="middle" class="relation">has</text>
+  <path class="line" d="M330 820 L515 820"/>
+  <text x="422" y="807" text-anchor="middle" class="relation">submits</text>
+  <path class="line" d="M840 820 L1025 820"/>
+  <text x="932" y="807" text-anchor="middle" class="relation">uses</text>
+  <path class="line" d="M330 220 C390 150 900 125 1025 220"/>
+  <text x="690" y="137" text-anchor="middle" class="relation">managed by</text>
+
+  <!-- Row 1: core catalogue -->
+  <g transform="translate(60 120)">
+    <rect class="entity core" width="270" height="210" rx="9"/>
+    <rect class="header-core" width="270" height="44" rx="9"/>
+    <rect class="header-core" y="35" width="270" height="9"/>
+    <text x="135" y="28" text-anchor="middle" class="header-text">BRANDS</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">BrandName</text>
+    <text x="18" y="134" class="field">CreationDate</text>
+    <text x="18" y="163" class="field">UpdationDate</text>
+  </g>
+  <g transform="translate(515 120)">
+    <rect class="entity catalog" width="325" height="210" rx="9"/>
+    <rect class="header-catalog" width="325" height="44" rx="9"/>
+    <rect class="header-catalog" y="35" width="325" height="9"/>
+    <text x="162" y="28" text-anchor="middle" class="header-text">VEHICLES</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">VehicleNumber (unique)</text>
+    <text x="18" y="134" class="field">VehicleTitle, VehicleBrand (FK)</text>
+    <text x="18" y="163" class="field">PricePerDay, FuelType, ModelYear</text>
+    <text x="18" y="192" class="field">SeatingCapacity, images, features</text>
+  </g>
+  <g transform="translate(1025 120)">
+    <rect class="entity support" width="300" height="210" rx="9"/>
+    <rect class="header-support" width="300" height="44" rx="9"/>
+    <rect class="header-support" y="35" width="300" height="9"/>
+    <text x="150" y="28" text-anchor="middle" class="header-text">ADMIN</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">UserName</text>
+    <text x="18" y="134" class="field">Password</text>
+    <text x="18" y="163" class="field">updationDate</text>
+  </g>
+
+  <!-- Row 2: booking transaction -->
+  <g transform="translate(60 420)">
+    <rect class="entity core" width="270" height="210" rx="9"/>
+    <rect class="header-core" width="270" height="44" rx="9"/>
+    <rect class="header-core" y="35" width="270" height="9"/>
+    <text x="135" y="28" text-anchor="middle" class="header-text">USERS</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">FullName, EmailId (unique)</text>
+    <text x="18" y="134" class="field">Password, ContactNo, dob</text>
+    <text x="18" y="163" class="field">Address, City, Country</text>
+  </g>
+  <g transform="translate(515 420)">
+    <rect class="entity catalog" width="325" height="210" rx="9"/>
+    <rect class="header-catalog" width="325" height="44" rx="9"/>
+    <rect class="header-catalog" y="35" width="325" height="9"/>
+    <text x="162" y="28" text-anchor="middle" class="header-text">BOOKING</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">BookingNumber</text>
+    <text x="18" y="134" class="field">userEmail, VehicleId (FK)</text>
+    <text x="18" y="163" class="field">FromDate, ToDate, message</text>
+    <text x="18" y="192" class="field">Status, PostingDate</text>
+  </g>
+  <g transform="translate(1025 420)">
+    <rect class="entity catalog" width="305" height="210" rx="9"/>
+    <rect class="header-catalog" width="305" height="44" rx="9"/>
+    <rect class="header-catalog" y="35" width="305" height="9"/>
+    <text x="152" y="28" text-anchor="middle" class="header-text">BILLING</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">booking_id (FK, unique)</text>
+    <text x="18" y="134" class="field">invoice_number (unique)</text>
+    <text x="18" y="163" class="field">rental_days, daily_rate</text>
+    <text x="18" y="192" class="field">total_amount, payment_status</text>
+  </g>
+
+  <!-- Row 3: supporting records -->
+  <g transform="translate(60 720)">
+    <rect class="entity support" width="270" height="210" rx="9"/>
+    <rect class="header-support" width="270" height="44" rx="9"/>
+    <rect class="header-support" y="35" width="270" height="9"/>
+    <text x="135" y="28" text-anchor="middle" class="header-text">TESTIMONIALS</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">UserEmail</text>
+    <text x="18" y="134" class="field">Testimonial</text>
+    <text x="18" y="163" class="field">status, PostingDate</text>
+  </g>
+  <g transform="translate(515 720)">
+    <rect class="entity support" width="325" height="210" rx="9"/>
+    <rect class="header-support" width="325" height="44" rx="9"/>
+    <rect class="header-support" y="35" width="325" height="9"/>
+    <text x="162" y="28" text-anchor="middle" class="header-text">CONTACT QUERY</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">name, EmailId, ContactNo</text>
+    <text x="18" y="134" class="field">Message</text>
+    <text x="18" y="163" class="field">status, PostingDate</text>
+  </g>
+  <g transform="translate(1025 720)">
+    <rect class="entity support" width="305" height="210" rx="9"/>
+    <rect class="header-support" width="305" height="44" rx="9"/>
+    <rect class="header-support" y="35" width="305" height="9"/>
+    <text x="152" y="28" text-anchor="middle" class="header-text">BILL DESIGNS</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">design_name, company_name</text>
+    <text x="18" y="134" class="field">address, email, phone, website</text>
+    <text x="18" y="163" class="field">colors, signature, active state</text>
+  </g>
+
+  <!-- Row 4: independent content tables -->
+  <g transform="translate(60 1000)">
+    <rect class="entity support" width="270" height="150" rx="9"/>
+    <rect class="header-support" width="270" height="44" rx="9"/>
+    <rect class="header-support" y="35" width="270" height="9"/>
+    <text x="135" y="28" text-anchor="middle" class="header-text">CONTACT INFO</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">Address, EmailId</text>
+    <text x="18" y="134" class="field">ContactNo</text>
+  </g>
+  <g transform="translate(515 1000)">
+    <rect class="entity support" width="325" height="150" rx="9"/>
+    <rect class="header-support" width="325" height="44" rx="9"/>
+    <rect class="header-support" y="35" width="325" height="9"/>
+    <text x="162" y="28" text-anchor="middle" class="header-text">PAGES</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">PageName, type</text>
+    <text x="18" y="134" class="field">detail</text>
+  </g>
+  <g transform="translate(1025 1000)">
+    <rect class="entity support" width="305" height="150" rx="9"/>
+    <rect class="header-support" width="305" height="44" rx="9"/>
+    <rect class="header-support" y="35" width="305" height="9"/>
+    <text x="152" y="28" text-anchor="middle" class="header-text">SUBSCRIBERS</text>
+    <text x="18" y="76" class="field key">PK id</text>
+    <text x="18" y="105" class="field">SubscriberEmail</text>
+    <text x="18" y="134" class="field">PostingDate</text>
+  </g>
+
+  <text x="60" y="1190" class="note">PK = primary key; FK = logical foreign-key reference. Blue and green cards form the booking core; orange cards are supporting administration and content records.</text>
+</svg>
